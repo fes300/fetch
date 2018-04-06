@@ -210,7 +210,7 @@
         this._bodyText = ''
       } else if (typeof body === 'string') {
         this._bodyText = body
-      } else if (support.blob && Blob.prototype.isPrototypeOf(body)) {
+      } else if (support.blob && body.constructor && body.constructor.name === 'Blob') {
         this._bodyBlob = body
       } else if (support.formData && FormData.prototype.isPrototypeOf(body)) {
         this._bodyFormData = body
